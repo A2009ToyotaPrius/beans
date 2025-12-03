@@ -8,28 +8,21 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;font-family:system-ui,sans-serif;overflow:hidden}
 
-    /* 1. toast wallpaper */
+    /* modern “toast-tone” gradient background */
     .toast-bg{
       position:fixed;
       inset:0;
-      background-image:url("https://www.freepik.com/free-psd/perfectly-toasted-slice-bread-golden-brown-crispy-ready-be-enjoyed_406534334.htm#fromView=keyword&page=1&position=0&uuid=9af334b3-aa89-4b79-ad06-10df01e73c47&query=Toast+png");
-      background-size:200px;
-      background-repeat:repeat;
-      animation:toast-drift 25s linear infinite;
+      background:linear-gradient(135deg, #e9b44c 0%, #d8862a 50%, #bf5e26 100%);
       z-index:-2;
     }
-    @keyframes toast-drift{
-      0%{background-position:0 0}
-      100%{background-position:200px 200px}
-    }
 
-    /* 2. bouncing BEANS */
+    /* bouncing BEANS */
     .beans{
       position:absolute;
       font-size:clamp(3rem,10vw,7rem);
       font-weight:900;
       color:#fff;
-      text-shadow:0 0 8px #0008;
+      text-shadow:0 0 12px #0006;
       white-space:nowrap;
       animation:bounce 12s linear infinite alternate;
     }
@@ -41,14 +34,14 @@
       100% {transform:translate(0,0)}
     }
 
-    /* 3. credit */
+    /* credit */
     .credit{
       position:absolute;
       bottom:.75rem;right:1rem;
       font-size:.75rem;
-      color:rgba(0,0,0,.7);
-      background:rgba(255,255,255,.6);
-      padding:2px 6px;
+      color:rgba(0,0,0,.6);
+      background:rgba(255,255,255,.55);
+      padding:3px 7px;
       border-radius:4px;
     }
     .credit a{color:#000;text-decoration:none}
@@ -57,6 +50,7 @@
 <body>
   <div class="toast-bg"></div>
   <div class="beans">BEANS</div>
-  <div class="credit">by <a href="A2009ToyotaPrius" target="_blank" rel="noopener">KayWimZicleR</a></div>
+  <div class="credit"> you smell miss <a href="https://github.com/A2009ToyotaPrius" target="_blank" rel="noopener">KayWimZicleR</a></div>
 </body>
 </html>
+
