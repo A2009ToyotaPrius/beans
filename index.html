@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beaned</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEANS</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; font-family: system-ui, sans-serif; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:system-ui,sans-serif;overflow:hidden}
 
-    /* 1. full-screen bean tile */
-    .bean-wall {
-      position: fixed;
-      inset: 0;
-      background-image: url("https://share.google/NV2IzFB264uVUjDCF");
-      background-size: 200px;          /* size of one bean tile */
-      background-repeat: repeat;
-      animation: slide 20s linear infinite;
-      z-index: -2;
+    /* 1. toast wallpaper */
+    .toast-bg{
+      position:fixed;
+      inset:0;
+      background-image:url("https://www.freepik.com/free-psd/perfectly-toasted-slice-bread-golden-brown-crispy-ready-be-enjoyed_406534334.htm#fromView=keyword&page=1&position=0&uuid=9af334b3-aa89-4b79-ad06-10df01e73c47&query=Toast+png");
+      background-size:200px;
+      background-repeat:repeat;
+      animation:toast-drift 25s linear infinite;
+      z-index:-2;
     }
-    @keyframes slide {
-      0%  { background-position: 0 0; }
-      100%{ background-position: 200px 200px; } /* same as bg-size */
-    }
-
-    /* 2. glossy sauce overlay (optional) */
-    .bean-wall::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.06) 0%, transparent 60%);
-      pointer-events: none;
+    @keyframes toast-drift{
+      0%{background-position:0 0}
+      100%{background-position:200px 200px}
     }
 
-    /* 3. center card */
-    .card {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(255,255,255,.92);
-      padding: 2.5rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,.4);
-      text-align: center;
+    /* 2. bouncing BEANS */
+    .beans{
+      position:absolute;
+      font-size:clamp(3rem,10vw,7rem);
+      font-weight:900;
+      color:#fff;
+      text-shadow:0 0 8px #0008;
+      white-space:nowrap;
+      animation:bounce 12s linear infinite alternate;
     }
-    h1 { font-size: clamp(2rem, 8vw, 4rem); color: #6b2e1d; }
-    p  { margin-top: 1rem; color: #444; }
+    @keyframes bounce{
+      0%   {transform:translate(0,0)}
+      25%  {transform:translate(calc(100vw - 100%),0)}
+      50%  {transform:translate(calc(100vw - 100%),calc(100vh - 100%))}
+      75%  {transform:translate(0,calc(100vh - 100%))}
+      100% {transform:translate(0,0)}
+    }
 
-    /* 4. credit */
-    .credit {
-      position: absolute;
-      bottom: .75rem; right: 1rem;
-      font-size: .75rem;
-      color: rgba(255,255,255,.7);
+    /* 3. credit */
+    .credit{
+      position:absolute;
+      bottom:.75rem;right:1rem;
+      font-size:.75rem;
+      color:rgba(0,0,0,.7);
+      background:rgba(255,255,255,.6);
+      padding:2px 6px;
+      border-radius:4px;
     }
-    .credit a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .credit a{color:#000;text-decoration:none}
   </style>
 </head>
 <body>
-  <div class="bean-wall"></div>
-
-  <section class="card">
-    <h1>Welcome to the Bean Zone</h1>
-    <p>Background = your chosen beans.</p>
-  </section>
-
-  <div class="credit">by <a href="https://github.com/A2009ToyotaPrius" target="_blank" rel="noopener">KayWimZicleR</a></div>
+  <div class="toast-bg"></div>
+  <div class="beans">BEANS</div>
+  <div class="credit">by <a href="A2009ToyotaPrius" target="_blank" rel="noopener">KayWimZicleR</a></div>
 </body>
 </html>
