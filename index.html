@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beaned</title>
+  <style>
+    :root {
+      --bean-size: 60px;
+      --sauce: #6b2e1d;
+      --bean: #d4782f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* baked-bean background */
+    .beans {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 25%, var(--bean) 18%, transparent 18%),
+        radial-gradient(circle at 75% 75%, var(--bean) 18%, transparent 18%),
+        radial-gradient(circle at 25% 75%, var(--bean) 18%, transparent 18%),
+        radial-gradient(circle at 75% 25%, var(--bean) 18%, transparent 18%);
+      background-size: var(--bean-size) var(--bean-size);
+      background-color: var(--sauce);
+      animation: swirl 20s linear infinite;
+      z-index: -2;
+    }
+    @keyframes swirl {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(-30px, -30px) rotate(360deg); }
+    }
+    .beans::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* center card */
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,.92);
+      padding: 2.5rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+      text-align: center;
+    }
+    h1 { font-size: clamp(2rem, 8vw, 4rem); color: var(--sauce); }
+    p  { margin-top: 1rem; color: #444; }
+
+    /* credit line */
+    .credit {
+      position: absolute;
+      bottom: .75rem;
+      right: 1rem;
+      font-size: .75rem;
+      color: rgba(255,255,255,.7);
+      letter-spacing: .5px;
+    }
+    .credit a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="beans"></div>
+
+  <section class="card">
+    <h1>Welcome to the Bean Zone</h1>
+    <p>Background = baked beans. That is all.</p>
+  </section>
+
+  <!-- credit -->
+  <div class="credit">by <a href="https://github.com/KayWimZicleR" target="_blank" rel="noopener">KayWimZicleR</a></div>
+</body>
+</html>
